@@ -1,0 +1,10 @@
+{
+  "categories": [
+    {"id": 1, "name": "Yong'in"},
+    {"id": 2, "name": "Zilzila"},
+    {"id": 3, "name": "Suv toshqini"},
+    {"id": 4, "name": "Elektr xavfi"},
+    {"id": 5, "name": "Birinchi yordam"},
+    {"id": 6, "name": "Iqlim o'zgarishi"}
+  ]
+}

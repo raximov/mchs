@@ -1,0 +1,21 @@
+name: loyiha_emergency_app
+description: Favqulodda vaziyatlar bo'yicha o'quv va test ilovasi
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  http: ^1.2.2
+  provider: ^6.1.2
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/data/seed_content.json
