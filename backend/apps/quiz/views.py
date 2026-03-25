@@ -27,7 +27,7 @@ class RandomTestAPIView(generics.ListAPIView):
 
 
 class SubmitTestAPIView(APIView):
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
     def post(self, request):
         serializer = SubmitTestSerializer(data=request.data)
@@ -36,7 +36,8 @@ class SubmitTestAPIView(APIView):
         submitted_answers = {int(k): v for k, v in serializer.validated_data['answers'].items()}
         score = check_test(submitted_answers)
 
-        result = TestResult.objects.create(user=request.user, score=score)
+        user = request.user if request.user.is_authenticated else None
+        result = TestResult.objects.create(user=user, score=score)
         return Response(
             {'result_id': result.id, 'score': score},
             status=status.HTTP_201_CREATED,

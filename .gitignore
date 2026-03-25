@@ -1,0 +1,10 @@
+backend/.venv/
+backend/db.sqlite3
+backend/.env
+frontend/.dart_tool/
+frontend/.packages
+frontend/.flutter-plugins
+frontend/.flutter-plugins-dependencies
+frontend/build/
+__pycache__/
+*.pyc
