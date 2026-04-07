@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.db import transaction
 
-from apps.education.models import Category, Lesson
+from apps.education.models import Category, Lesson, LessonBlock
 from apps.quiz.models import Answer, Question
 
 
@@ -13,6 +13,36 @@ SEED_DATA = [
             "Avvalo vaziyatni baholang, odamlarni ogohlantiring va imkon qadar tez xavfsiz joyga chiqing. "
             "Lift ishlatmang, tutun bo'lsa pastroq egilib harakat qiling va 101 yoki 112 ga xabar bering."
         ),
+        'lesson_blocks': [
+            {
+                'order': 1,
+                'block_type': 'image',
+                'title': "Yong'in o'chirgich sxemasi",
+                'body': "O'quvchiga ushlagich, xavfsizlik plomba va purkash qismi qayerda ekanini ko'rsating.",
+                'media_url': 'https://images.unsplash.com/photo-1593115057322-e94b77572f20?auto=format&fit=crop&w=1200&q=80',
+            },
+            {
+                'order': 2,
+                'block_type': 'video',
+                'title': 'Evakuatsiya bo‘yicha qisqa video',
+                'body': "30 soniyalik rolikda sinfdan chiqish ketma-ketligini ko'rsating.",
+                'media_url': 'https://www.youtube.com/watch?v=Sqz5dbs5zmo',
+            },
+            {
+                'order': 3,
+                'block_type': 'audio',
+                'title': '112 ga qo‘ng‘iroq namunasi',
+                'body': "Ism, manzil va hodisa turini aniq aytish bo'yicha audio yozuv.",
+                'media_url': 'https://example.com/mchs/fire-dispatch-sample.mp3',
+            },
+            {
+                'order': 4,
+                'block_type': 'checklist',
+                'title': "Yong'in paytida 4 qadam",
+                'body': "1. Atrofdagilarni ogohlantiring\n2. Lift ishlatmang\n3. Pastroq egilib chiqing\n4. 101 yoki 112 ga qo'ng'iroq qiling",
+                'media_url': '',
+            },
+        ],
         'questions': [
             {
                 'text': "Yong'in paytida binoni tark etishda eng to'g'ri yo'l qaysi?",
@@ -41,6 +71,7 @@ SEED_DATA = [
             "Silkinish paytida boshni va bo'yinni himoya qiling, oynalardan uzoqroq turing va mustahkam buyum ostida "
             "panalang. Ko'chada bo'lsangiz, binolar, ustunlar va daraxtlardan uzoqroq joyga o'ting."
         ),
+        'lesson_blocks': [],
         'questions': [
             {
                 'text': "Zilzila vaqtida xona ichida bo'lsangiz nima qilish kerak?",
@@ -69,6 +100,7 @@ SEED_DATA = [
             "Suv sathi oshayotgan bo'lsa, balandroq joyga chiqing va elektr manbalaridan uzoq turing. "
             "Tez oqayotgan suvdan piyoda ham, avtomobil bilan ham o'tishga urinmang."
         ),
+        'lesson_blocks': [],
         'questions': [
             {
                 'text': "Suv toshqini paytida eng xavfsiz qaror qaysi?",
@@ -97,6 +129,7 @@ SEED_DATA = [
             "Nam qo'l bilan elektr jihozlariga tegmang va shikastlangan simlardan foydalanmang. "
             "Tok urgan odamga bevosita tegishdan oldin elektr manbaini uzing."
         ),
+        'lesson_blocks': [],
         'questions': [
             {
                 'text': "Tok urgan odamga yordam berishda birinchi qadam nima?",
@@ -125,6 +158,7 @@ SEED_DATA = [
             "Jarohatlangan odamning hushini, nafasini va qon ketishini baholang. Zarur bo'lsa tez yordam chaqiring "
             "va faqat xavfsiz usullar bilan yordam ko'rsating."
         ),
+        'lesson_blocks': [],
         'questions': [
             {
                 'text': "Birinchi yordamda avval nima baholanadi?",
@@ -153,6 +187,7 @@ SEED_DATA = [
             "Issiq kunlarda ko'proq suv iching, soyada dam oling va kunning eng issiq paytida og'ir ishlarni cheklang. "
             "Ob-havo ogohlantirishlarini muntazam kuzatib boring."
         ),
+        'lesson_blocks': [],
         'questions': [
             {
                 'text': "Issiq to'lqin vaqtida qaysi odat foydali?",
@@ -190,12 +225,27 @@ class Command(BaseCommand):
             category, category_created = Category.objects.get_or_create(name=category_data['name'])
             created_categories += int(category_created)
 
-            Lesson.objects.update_or_create(
+            lesson, _ = Lesson.objects.update_or_create(
                 category=category,
                 title=category_data['lesson_title'],
                 defaults={'content': category_data['lesson_content']},
             )
             updated_lessons += 1
+
+            lesson.blocks.all().delete()
+            LessonBlock.objects.bulk_create(
+                [
+                    LessonBlock(
+                        lesson=lesson,
+                        order=block_data['order'],
+                        block_type=block_data['block_type'],
+                        title=block_data['title'],
+                        body=block_data['body'],
+                        media_url=block_data['media_url'],
+                    )
+                    for block_data in category_data.get('lesson_blocks', [])
+                ]
+            )
 
             for question_data in category_data['questions']:
                 question, _ = Question.objects.get_or_create(

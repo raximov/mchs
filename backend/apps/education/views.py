@@ -10,10 +10,10 @@ class CategoryListAPIView(generics.ListAPIView):
 
 
 class LessonListAPIView(generics.ListAPIView):
-    queryset = Lesson.objects.select_related('category').all().order_by('id')
+    queryset = Lesson.objects.select_related('category').prefetch_related('blocks').all().order_by('id')
     serializer_class = LessonSerializer
 
 
 class LessonDetailAPIView(generics.RetrieveAPIView):
-    queryset = Lesson.objects.select_related('category').all()
+    queryset = Lesson.objects.select_related('category').prefetch_related('blocks').all()
     serializer_class = LessonSerializer

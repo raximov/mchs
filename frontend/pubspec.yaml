@@ -14,18 +14,13 @@ dependencies:
   provider: ^6.1.2
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  url_launcher: ^6.3.1
 
 
 
 
 dev_dependencies:
   flutter_lints: ^6.0.0
-
-=======
-
-=======
-
-=======
 
 flutter:
   uses-material-design: true
