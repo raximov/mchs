@@ -21,3 +21,4 @@ class LessonBlockAdmin(admin.ModelAdmin):
     list_display = ('id', 'lesson', 'order', 'block_type', 'title')
     list_filter = ('block_type', 'lesson__category')
     search_fields = ('lesson__title', 'title', 'body', 'media_url')
+    fields = ('lesson', 'order', 'block_type', 'title', 'body', 'media_url', 'media_file')

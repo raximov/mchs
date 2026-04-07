@@ -5,6 +5,7 @@ class LessonBlock {
   final String title;
   final String body;
   final String mediaUrl;
+  final String fileUrl;
 
   const LessonBlock({
     required this.id,
@@ -13,6 +14,7 @@ class LessonBlock {
     required this.title,
     required this.body,
     required this.mediaUrl,
+    required this.fileUrl,
   });
 
   factory LessonBlock.fromJson(Map<String, dynamic> json) {
@@ -23,8 +25,11 @@ class LessonBlock {
       title: (json['title'] as String?) ?? '',
       body: (json['body'] as String?) ?? '',
       mediaUrl: (json['media_url'] as String?) ?? '',
+      fileUrl: (json['file_url'] as String?) ?? '',
     );
   }
+
+  String get resolvedMediaUrl => fileUrl.isNotEmpty ? fileUrl : mediaUrl;
 }
 
 class Lesson {

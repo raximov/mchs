@@ -10,9 +10,19 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class LessonBlockSerializer(serializers.ModelSerializer):
+    file_url = serializers.SerializerMethodField()
+
+    def get_file_url(self, obj):
+        if not obj.media_file:
+            return ''
+        request = self.context.get('request')
+        if request is None:
+            return obj.media_file.url
+        return request.build_absolute_uri(obj.media_file.url)
+
     class Meta:
         model = LessonBlock
-        fields = ['id', 'order', 'block_type', 'title', 'body', 'media_url']
+        fields = ['id', 'order', 'block_type', 'title', 'body', 'media_url', 'file_url']
 
 
 class LessonSerializer(serializers.ModelSerializer):

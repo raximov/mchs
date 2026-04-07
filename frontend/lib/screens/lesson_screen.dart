@@ -102,15 +102,17 @@ class _ImageBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final resolvedUrl = block.resolvedMediaUrl;
+
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
       clipBehavior: Clip.antiAlias,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (block.mediaUrl.isNotEmpty)
+          if (resolvedUrl.isNotEmpty)
             Image.network(
-              block.mediaUrl,
+              resolvedUrl,
               height: 220,
               width: double.infinity,
               fit: BoxFit.cover,
@@ -154,7 +156,7 @@ class _MediaLinkBlock extends StatelessWidget {
   final Color tint;
 
   Future<void> _openUrl(BuildContext context) async {
-    final raw = block.mediaUrl.trim();
+    final raw = block.resolvedMediaUrl.trim();
     if (raw.isEmpty) {
       return;
     }
@@ -181,7 +183,7 @@ class _MediaLinkBlock extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       color: tint,
       child: InkWell(
-        onTap: block.mediaUrl.isNotEmpty ? () => _openUrl(context) : null,
+        onTap: block.resolvedMediaUrl.isNotEmpty ? () => _openUrl(context) : null,
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -197,17 +199,17 @@ class _MediaLinkBlock extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
                   ),
-                  if (block.mediaUrl.isNotEmpty) const Icon(Icons.open_in_new_rounded, size: 18),
+                  if (block.resolvedMediaUrl.isNotEmpty) const Icon(Icons.open_in_new_rounded, size: 18),
                 ],
               ),
               if (block.body.isNotEmpty) ...[
                 const SizedBox(height: 8),
                 Text(block.body),
               ],
-              if (block.mediaUrl.isNotEmpty) ...[
+              if (block.resolvedMediaUrl.isNotEmpty) ...[
                 const SizedBox(height: 10),
                 Text(
-                  block.mediaUrl,
+                  block.resolvedMediaUrl,
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         color: Colors.blue.shade800,
                         decoration: TextDecoration.underline,

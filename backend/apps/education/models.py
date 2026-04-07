@@ -34,6 +34,7 @@ class LessonBlock(models.Model):
     title = models.CharField(max_length=255, blank=True)
     body = models.TextField(blank=True)
     media_url = models.URLField(blank=True)
+    media_file = models.FileField(upload_to='lesson_blocks/', blank=True)
 
     class Meta:
         ordering = ('order', 'id')
