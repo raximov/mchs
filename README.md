@@ -5,9 +5,6 @@ Ushbu repoda **Django REST backend** va **Flutter frontend (APK)** uchun boshlan
 ## 1) Backend (Django REST)
 
 ### Ishga tushirish
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
 =======
 # LOYIHA: Favqulodda Vaziyatlar O‘quv Ilovasi (Backend skeleton)
 
@@ -104,9 +101,6 @@ flutter build apk --release
 - migratsiyalar va seed data
 - Flutter UI polishing (responsive/design system)
 - offline sync strategiyasi (background sync)
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
 =======
 ## Model tuzilmasi
 - Education: `Category`, `Lesson`
