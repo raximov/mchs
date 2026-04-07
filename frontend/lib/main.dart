@@ -1,4 +1,10 @@
+<<<<<<< ours
+<<<<<<< ours
 import 'package:flutter/foundation.dart';
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +19,15 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
 
+<<<<<<< ours
+<<<<<<< ours
   final apiClient = ApiClient(baseUrl: _resolveApiBaseUrl());
+=======
+  final apiClient = ApiClient(baseUrl: 'http://10.0.2.2:8000');
+>>>>>>> theirs
+=======
+  final apiClient = ApiClient(baseUrl: 'http://10.0.2.2:8000');
+>>>>>>> theirs
 
   runApp(
     MultiProvider(
@@ -30,6 +44,8 @@ Future<void> main() async {
   );
 }
 
+<<<<<<< ours
+<<<<<<< ours
 String _resolveApiBaseUrl() {
   const override = String.fromEnvironment('API_BASE_URL');
   if (override.isNotEmpty) {
@@ -46,7 +62,10 @@ String _resolveApiBaseUrl() {
 
   return 'http://127.0.0.1:8000';
 }
-
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 class LoyihaApp extends StatelessWidget {
   const LoyihaApp({super.key});
 

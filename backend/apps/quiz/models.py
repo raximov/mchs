@@ -22,7 +22,15 @@ class Answer(models.Model):
 
 
 class TestResult(models.Model):
+<<<<<<< ours
+<<<<<<< ours
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
+=======
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+>>>>>>> theirs
+=======
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+>>>>>>> theirs
     score = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
 

@@ -5,12 +5,18 @@ Ushbu repoda **Django REST backend** va **Flutter frontend (APK)** uchun boshlan
 ## 1) Backend (Django REST)
 
 ### Ishga tushirish
+<<<<<<< ours
+<<<<<<< ours
 =======
 # LOYIHA: Favqulodda Vaziyatlar O‘quv Ilovasi (Backend skeleton)
 
 Ushbu repoda Django REST asosidagi backend skeleti yaratildi.
 
 ## Ishga tushirish
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 
 ```bash
 cd backend
@@ -25,23 +31,41 @@ python manage.py runserver
 ### API endpointlar
 
 #### Content module
+<<<<<<< ours
+<<<<<<< ours
 =======
 ## API endpointlar
 
 ### Content module
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 - `GET /api/categories`
 - `GET /api/lessons`
 - `GET /api/lessons/{id}`
 
 #### Quiz module
+<<<<<<< ours
+<<<<<<< ours
 =======
 ### Quiz module
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 - `GET /api/questions?category_id=`
 - `GET /api/random-test`
 - `POST /api/submit-test` (auth required)
 
 `submit-test` request body:
+<<<<<<< ours
+<<<<<<< ours
 Request body example (`submit-test`):
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 
 ```json
 {
@@ -87,6 +111,8 @@ flutter build apk --release
 - migratsiyalar va seed data
 - Flutter UI polishing (responsive/design system)
 - offline sync strategiyasi (background sync)
+<<<<<<< ours
+<<<<<<< ours
 =======
 ## Model tuzilmasi
 - Education: `Category`, `Lesson`
@@ -97,3 +123,7 @@ flutter build apk --release
 - migratsiyalar yaratish
 - Flutter bilan integratsiya
 - offline sync strategiyasi
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs

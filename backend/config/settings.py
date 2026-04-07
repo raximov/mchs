@@ -1,8 +1,16 @@
+<<<<<<< ours
+<<<<<<< ours
 import os
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+<<<<<<< ours
+<<<<<<< ours
 
 def _load_dotenv() -> None:
     env_path = BASE_DIR / '.env'
@@ -23,6 +31,16 @@ _load_dotenv()
 SECRET_KEY = os.environ.get('SECRET_KEY', 'replace-this-in-production')
 DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
 ALLOWED_HOSTS = [host.strip() for host in os.environ.get('ALLOWED_HOSTS', '*').split(',') if host.strip()]
+=======
+SECRET_KEY = 'replace-this-in-production'
+DEBUG = True
+ALLOWED_HOSTS = ['*']
+>>>>>>> theirs
+=======
+SECRET_KEY = 'replace-this-in-production'
+DEBUG = True
+ALLOWED_HOSTS = ['*']
+>>>>>>> theirs
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -38,7 +56,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+<<<<<<< ours
+<<<<<<< ours
     'config.cors.DevCorsMiddleware',
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -68,6 +92,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 ASGI_APPLICATION = 'config.asgi.application'
 
+<<<<<<< ours
+<<<<<<< ours
 if os.environ.get('DB_ENGINE') == 'postgresql':
     DATABASES = {
         'default': {
@@ -86,6 +112,23 @@ else:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+=======
+=======
+>>>>>>> theirs
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'loyiha_db',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+<<<<<<< ours
+>>>>>>> theirs
+=======
+>>>>>>> theirs
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},

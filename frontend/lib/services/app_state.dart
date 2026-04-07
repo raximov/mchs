@@ -1,4 +1,12 @@
+<<<<<<< ours
+<<<<<<< ours
 import 'package:flutter/foundation.dart' hide Category;
+=======
+import 'package:flutter/foundation.dart';
+>>>>>>> theirs
+=======
+import 'package:flutter/foundation.dart';
+>>>>>>> theirs
 
 import '../models/category.dart';
 import '../models/lesson.dart';
