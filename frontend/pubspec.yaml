@@ -15,15 +15,18 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
 
-<<<<<<< ours
-<<<<<<< ours
+
+
+
 dev_dependencies:
   flutter_lints: ^6.0.0
 
 =======
->>>>>>> theirs
+
 =======
->>>>>>> theirs
+
+=======
+
 flutter:
   uses-material-design: true
   assets:

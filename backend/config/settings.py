@@ -1,16 +1,20 @@
-<<<<<<< ours
-<<<<<<< ours
+
+
+
 import os
 =======
->>>>>>> theirs
+
 =======
->>>>>>> theirs
+
+=======
+
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-<<<<<<< ours
-<<<<<<< ours
+
+
+
 
 def _load_dotenv() -> None:
     env_path = BASE_DIR / '.env'
@@ -35,12 +39,17 @@ ALLOWED_HOSTS = [host.strip() for host in os.environ.get('ALLOWED_HOSTS', '*').s
 SECRET_KEY = 'replace-this-in-production'
 DEBUG = True
 ALLOWED_HOSTS = ['*']
->>>>>>> theirs
+
 =======
 SECRET_KEY = 'replace-this-in-production'
 DEBUG = True
 ALLOWED_HOSTS = ['*']
->>>>>>> theirs
+
+=======
+SECRET_KEY = 'replace-this-in-production'
+DEBUG = True
+ALLOWED_HOSTS = ['*']
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -56,13 +65,16 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-<<<<<<< ours
-<<<<<<< ours
+
+
+
     'config.cors.DevCorsMiddleware',
 =======
->>>>>>> theirs
+
 =======
->>>>>>> theirs
+
+=======
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -92,8 +104,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 ASGI_APPLICATION = 'config.asgi.application'
 
-<<<<<<< ours
-<<<<<<< ours
+
+
+
 if os.environ.get('DB_ENGINE') == 'postgresql':
     DATABASES = {
         'default': {
@@ -114,7 +127,9 @@ else:
     }
 =======
 =======
->>>>>>> theirs
+
+=======
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -125,10 +140,13 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-<<<<<<< ours
->>>>>>> theirs
+
+
+
 =======
->>>>>>> theirs
+
+=======
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
