@@ -37,7 +37,7 @@ String _resolveApiBaseUrl() {
   }
 
   if (kIsWeb) {
-    return 'http://127.0.0.1:8000';
+    return 'https://mchs-3ewf.onrender.com/api';
   }
 
   if (defaultTargetPlatform == TargetPlatform.android) {

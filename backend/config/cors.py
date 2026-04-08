@@ -1,4 +1,4 @@
-from typing import Iterable
+import os
 
 
 class DevCorsMiddleware:
@@ -25,13 +25,15 @@ class DevCorsMiddleware:
         return HttpResponse(status=204)
 
     def _is_allowed_origin(self, origin: str) -> bool:
-        allowed_prefixes: Iterable[str] = (
-            'http://localhost:',
-            'http://127.0.0.1:',
-            'https://localhost:',
-            'https://127.0.0.1:',
-        )
-        return any(origin.startswith(prefix) for prefix in allowed_prefixes)
+        allowed_origins = [
+            item.strip()
+            for item in os.environ.get(
+                'CORS_ALLOWED_ORIGINS',
+                'http://localhost:3000,http://127.0.0.1:3000,http://localhost:8000,http://127.0.0.1:8000',
+            ).split(',')
+            if item.strip()
+        ]
+        return origin in allowed_origins
 
     def _merge_vary(self, existing: str | None, value: str) -> str:
         if not existing:
