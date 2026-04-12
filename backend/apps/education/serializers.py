@@ -25,6 +25,16 @@ class LessonBlockSerializer(serializers.ModelSerializer):
         fields = ['id', 'order', 'block_type', 'title', 'body', 'media_url', 'file_url']
 
 
+class LessonBlockWriteSerializer(serializers.ModelSerializer):
+    lesson_id = serializers.PrimaryKeyRelatedField(
+        queryset=Lesson.objects.all(), source='lesson', write_only=True
+    )
+
+    class Meta:
+        model = LessonBlock
+        fields = ['id', 'lesson_id', 'order', 'block_type', 'title', 'body', 'media_url', 'media_file']
+
+
 class LessonSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True)
     blocks = LessonBlockSerializer(many=True, read_only=True)
