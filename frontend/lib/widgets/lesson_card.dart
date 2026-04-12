@@ -31,7 +31,7 @@ class LessonCard extends StatelessWidget {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: accents.last.withOpacity(0.18),
+                  color: accents.last.withValues(alpha: 0.18),
                   blurRadius: 24,
                   offset: const Offset(0, 12),
                 ),
@@ -45,10 +45,11 @@ class LessonCard extends StatelessWidget {
                     width: 52,
                     height: 52,
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.72),
+                      color: Colors.white.withValues(alpha: 0.72),
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    child: Icon(_iconFor(lesson.categoryName), color: const Color(0xFF7A1F1F)),
+                    child: Icon(_iconFor(lesson.categoryName),
+                        color: const Color(0xFF7A1F1F)),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
@@ -95,7 +96,7 @@ class LessonCard extends StatelessWidget {
                     width: 40,
                     height: 40,
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.82),
+                      color: Colors.white.withValues(alpha: 0.82),
                       borderRadius: BorderRadius.circular(14),
                     ),
                     child: const Icon(Icons.arrow_forward_rounded, size: 20),
@@ -155,7 +156,7 @@ class _InfoChip extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.8),
+        color: Colors.white.withValues(alpha: 0.8),
         borderRadius: BorderRadius.circular(999),
       ),
       child: Row(

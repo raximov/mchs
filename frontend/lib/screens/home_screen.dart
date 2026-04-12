@@ -47,7 +47,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: const Color(0xFF9B2226).withOpacity(0.25),
+                          color:
+                              const Color(0xFF9B2226).withValues(alpha: 0.25),
                           blurRadius: 28,
                           offset: const Offset(0, 14),
                         ),
@@ -57,9 +58,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 8),
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.16),
+                            color: Colors.white.withValues(alpha: 0.16),
                             borderRadius: BorderRadius.circular(999),
                           ),
                           child: const Text(
@@ -95,7 +97,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (_) => const TestScreen()),
+                              MaterialPageRoute(
+                                  builder: (_) => const TestScreen()),
                             );
                           },
                         ),
@@ -115,9 +118,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 8),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.82),
+                          color: Colors.white.withValues(alpha: 0.82),
                           borderRadius: BorderRadius.circular(999),
                           border: Border.all(color: const Color(0xFFEAD8CC)),
                         ),
@@ -147,7 +151,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (_) => LessonScreen(lesson: lesson)),
+                          MaterialPageRoute(
+                              builder: (_) => LessonScreen(lesson: lesson)),
                         );
                       },
                     ),
@@ -174,9 +179,9 @@ class _TestLaunchCard extends StatelessWidget {
         child: Ink(
           padding: const EdgeInsets.all(18),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.16),
+            color: Colors.white.withValues(alpha: 0.16),
             borderRadius: BorderRadius.circular(24),
-            border: Border.all(color: Colors.white.withOpacity(0.18)),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.18)),
           ),
           child: Row(
             children: [
@@ -187,7 +192,8 @@ class _TestLaunchCard extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(18),
                 ),
-                child: const Icon(Icons.auto_awesome_rounded, color: Color(0xFF9B2226)),
+                child: const Icon(Icons.auto_awesome_rounded,
+                    color: Color(0xFF9B2226)),
               ),
               const SizedBox(width: 14),
               const Expanded(
@@ -219,10 +225,11 @@ class _TestLaunchCard extends StatelessWidget {
                 width: 42,
                 height: 42,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.22),
+                  color: Colors.white.withValues(alpha: 0.22),
                   borderRadius: BorderRadius.circular(14),
                 ),
-                child: const Icon(Icons.arrow_forward_rounded, color: Colors.white),
+                child: const Icon(Icons.arrow_forward_rounded,
+                    color: Colors.white),
               ),
             ],
           ),

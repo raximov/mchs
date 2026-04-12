@@ -67,7 +67,8 @@ class _TestScreenState extends State<TestScreen> {
                   Row(
                     children: [
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 8),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(999),
@@ -97,7 +98,8 @@ class _TestScreenState extends State<TestScreen> {
                       minHeight: 10,
                       value: progress,
                       backgroundColor: Colors.white,
-                      valueColor: const AlwaysStoppedAnimation(Color(0xFFE76F51)),
+                      valueColor:
+                          const AlwaysStoppedAnimation(Color(0xFFE76F51)),
                     ),
                   ),
                   const SizedBox(height: 18),
@@ -121,7 +123,8 @@ class _TestScreenState extends State<TestScreen> {
                       padding: const EdgeInsets.only(bottom: 12),
                       child: _AnswerTile(
                         text: answer.text,
-                        selected: state.selectedAnswers[question.id] == answer.id,
+                        selected:
+                            state.selectedAnswers[question.id] == answer.id,
                         onTap: () => state.pickAnswer(question.id, answer.id),
                       ),
                     ),
@@ -139,12 +142,12 @@ class _TestScreenState extends State<TestScreen> {
                     setState(() => currentIndex += 1);
                     return;
                   }
+                  final navigator = Navigator.of(context);
                   final score = await state.submit();
                   if (!mounted) {
                     return;
                   }
-                  Navigator.pushReplacement(
-                    context,
+                  navigator.pushReplacement(
                     MaterialPageRoute(
                       builder: (_) => ResultScreen(
                         score: score,
@@ -153,7 +156,9 @@ class _TestScreenState extends State<TestScreen> {
                     ),
                   );
                 },
-                child: Text(currentIndex == state.questions.length - 1 ? 'Testni yakunlash' : 'Keyingi savol'),
+                child: Text(currentIndex == state.questions.length - 1
+                    ? 'Testni yakunlash'
+                    : 'Keyingi savol'),
               ),
             ),
           ],
@@ -184,10 +189,13 @@ class _AnswerTile extends StatelessWidget {
         child: Ink(
           padding: const EdgeInsets.all(18),
           decoration: BoxDecoration(
-            color: selected ? const Color(0xFFFFE5DB) : Colors.white.withOpacity(0.82),
+            color: selected
+                ? const Color(0xFFFFE5DB)
+                : Colors.white.withValues(alpha: 0.82),
             borderRadius: BorderRadius.circular(22),
             border: Border.all(
-              color: selected ? const Color(0xFFE76F51) : const Color(0xFFEBD8CD),
+              color:
+                  selected ? const Color(0xFFE76F51) : const Color(0xFFEBD8CD),
               width: selected ? 1.6 : 1,
             ),
           ),
@@ -200,9 +208,12 @@ class _AnswerTile extends StatelessWidget {
                 height: 24,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: selected ? const Color(0xFF9B2226) : Colors.transparent,
+                  color:
+                      selected ? const Color(0xFF9B2226) : Colors.transparent,
                   border: Border.all(
-                    color: selected ? const Color(0xFF9B2226) : const Color(0xFFC6AFA2),
+                    color: selected
+                        ? const Color(0xFF9B2226)
+                        : const Color(0xFFC6AFA2),
                     width: 2,
                   ),
                 ),

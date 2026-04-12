@@ -86,10 +86,11 @@ class LoyihaApp extends StatelessWidget {
             letterSpacing: 0.2,
           ),
         ),
-        cardTheme: CardTheme(
-          color: Colors.white.withOpacity(0.76),
+        cardTheme: CardThemeData(
+          color: Colors.white.withValues(alpha: 0.76),
           elevation: 0,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
           margin: EdgeInsets.zero,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -97,15 +98,18 @@ class LoyihaApp extends StatelessWidget {
             backgroundColor: primary,
             foregroundColor: Colors.white,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
-            textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+            textStyle:
+                const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
           ),
         ),
         filledButtonTheme: FilledButtonThemeData(
           style: FilledButton.styleFrom(
             backgroundColor: primary,
             foregroundColor: Colors.white,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
           ),
         ),
       ),
